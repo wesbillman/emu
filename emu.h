@@ -27,7 +27,6 @@
 extern "C" {
 #endif    
 	
-
 #define MAX_TESTS_IN_SUITE		32
 #define MAX_SUITES_IN_REPO		32
 #define MAX_SUITE_NAME_LENGTH	32
@@ -35,6 +34,10 @@ extern "C" {
 #define EMU_OK		1
 #define EMU_FAIL	-1
 
+//memory defines
+#define emu_malloc(size)	malloc(size)
+#define	emu_free(ptr)		free(ptr)
+	
 typedef int emu_error;
 typedef struct emu_test emu_test;
 typedef struct emu_suite emu_suite;

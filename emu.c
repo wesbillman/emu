@@ -38,7 +38,7 @@ static emu_test* _current_test;
 static char* _emu_strcpy(const char* old)
 {
 	int len = strlen(old);
-	char* newStr = (char*)malloc(sizeof(char) * (len + 1));
+	char* newStr = (char*)emu_malloc(sizeof(char) * (len + 1));
 	strcpy(newStr, old);
 	return newStr;
 }
@@ -56,7 +56,7 @@ void emu_all_display(void)
 emu_suite* emu_suite_add(const char* name, emu_setup setup, emu_teardown teardown)
 {
 	assert(name != NULL);
-	emu_suite* suite = ((emu_suite*) malloc(sizeof(emu_suite)));
+	emu_suite* suite = ((emu_suite*) emu_malloc(sizeof(emu_suite)));
 	suite->name = _emu_strcpy(name);
 	suite->num_tests = 0;
 	suite->num_failed = 0;
@@ -80,7 +80,7 @@ void emu_suite_delete(emu_suite* suite)
 			//emu_test_delete(suite->list[i]);
 		}
 	}
-	free(suite);
+	emu_free(suite);
 	_repo.num_suites--;
 }
 
@@ -131,7 +131,7 @@ emu_test* emu_test_add(emu_suite* suite, const char* name, emu_test_func test_fu
 	assert(suite->num_tests < MAX_TESTS_IN_SUITE);
 	assert(name != NULL);
 	
-	emu_test* test = ((emu_test*) malloc(sizeof(emu_test)));
+	emu_test* test = ((emu_test*) emu_malloc(sizeof(emu_test)));
 	test->name = _emu_strcpy(name);
 	test->message = NULL;
 	test->passed = 0;
@@ -147,8 +147,8 @@ emu_test* emu_test_add(emu_suite* suite, const char* name, emu_test_func test_fu
 void emu_test_delete(emu_test* test)
 {
 	if (!test) return;
-	free(test->name);
-	free(test);
+	emu_free(test->name);
+	emu_free(test);
 }
 
 void emu_test_run(emu_test* test)

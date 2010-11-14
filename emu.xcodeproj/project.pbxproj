@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8DD76FAC0486AB0100D96B5E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
+		8DD76FAC0486AB0100D96B5E /* emu_test.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* emu_test.c */; settings = {ATTRIBUTES = (); }; };
 		8DD76FB00486AB0100D96B5E /* emu.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* emu.1 */; };
 		CB2C19CE128E07C2008275D4 /* emu.c in Sources */ = {isa = PBXBuildFile; fileRef = CB2C19CD128E07C2008275D4 /* emu.c */; };
 /* End PBXBuildFile section */
@@ -26,7 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		08FB7796FE84155DC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		08FB7796FE84155DC02AAC07 /* emu_test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = emu_test.c; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* emu */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = emu; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A0FF2C0290799A04C91782 /* emu.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = emu.1; sourceTree = "<group>"; };
 		CB2C19CC128E07C2008275D4 /* emu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emu.h; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				08FB7796FE84155DC02AAC07 /* main.c */,
+				08FB7796FE84155DC02AAC07 /* emu_test.c */,
 				CB2C19CC128E07C2008275D4 /* emu.h */,
 				CB2C19CD128E07C2008275D4 /* emu.c */,
 			);
@@ -106,6 +106,9 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Wes Billman";
+			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "emu" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -130,7 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DD76FAC0486AB0100D96B5E /* main.c in Sources */,
+				8DD76FAC0486AB0100D96B5E /* emu_test.c in Sources */,
 				CB2C19CE128E07C2008275D4 /* emu.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
