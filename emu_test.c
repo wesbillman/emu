@@ -24,6 +24,9 @@
 #include <assert.h>
 #include "emu.h"
 
+/**
+ * Example suite setup
+ */
 emu_error setup(emu_suite* suite)
 {
 	printf("Running %s setup\n", suite->name);
@@ -58,16 +61,23 @@ emu_error failing_test(emu_test* test)
 
 int main (int argc, const char * argv[]) 
 {
+	//create a new suite of tests
 	emu_suite* suite = emu_suite_add("suite_a", setup, teardown);
-	emu_test* test;
-
-	test = emu_test_add(suite, "passing_test", passing_test);
+	
+	//add some tests to the suite
+	emu_test* test = emu_test_add(suite, "passing_test", passing_test);
 	emu_test_add(suite, "failing_test", failing_test);
+	
+	//run the whole suite
 	emu_suite_run(suite);
-	emu_test_run(test);
+	
+	//display results
 	emu_display_summary();
 	emu_display_details();
 	
-	emu_suite_delete(suite);
+	//run a specific test
+	emu_test_run(test);
+	emu_test_display_details(test);
+	
     return 0;
 }

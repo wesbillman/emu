@@ -34,9 +34,11 @@ extern "C" {
 #define EMU_OK		1
 #define EMU_FAIL	-1
 
-//memory defines
-#define emu_malloc(size)	malloc(size)
-#define	emu_free(ptr)		free(ptr)
+//emu overrides
+#define emu_malloc(size)				malloc(size)
+#define	emu_free(ptr)					free(ptr)
+#define emu_memset(ptr, value, size)	memset(ptr, value, size)
+#define	emu_printf(...)					printf(__VA_ARGS__)
 	
 typedef int emu_error;
 typedef struct emu_test emu_test;
@@ -69,13 +71,13 @@ struct emu_suite{
 emu_suite* emu_suite_add(const char* name, emu_setup setup, emu_teardown teardown);
 void emu_suite_delete(emu_suite* suite);
 void emu_suite_run(emu_suite* suite);
-void emu_suite_display(emu_suite* suite);
+void emu_suite_display_details(emu_suite* suite);
 
 //test functions
 emu_test* emu_test_add(emu_suite* suite, const char* name, emu_test_func test);
 void emu_test_delete(emu_test* test);
 void emu_test_run(emu_test* test);
-void emu_test_display(emu_test* test);
+void emu_test_display_details(emu_test* test);
 
 //framework functions
 void emu_all_run(void);
