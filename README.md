@@ -13,6 +13,7 @@ EMU is a simple EMbedded Unit testing framework
     #define MAX_SUITES_IN_REPO		32
     #define MAX_SUITE_NAME_LENGTH	32  
 5. Add some tests using test macros
+
     #define emu_fail(message)
     #define emu_pass(message)
     #define emu_fail_if(test)
