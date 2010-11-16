@@ -2,7 +2,7 @@
 EMU is a simple EMbedded Unit testing framework
 
 ## Quickstart
-1. Create a new .c file for you tests (see emu_test.c for an example)
+1. Create a new .c file for your tests (see emu_test.c for an example)
 2. Include emu.h in your file
 
         #include "emu.h"
