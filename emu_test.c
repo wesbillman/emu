@@ -29,55 +29,55 @@
  */
 emu_error setup(emu_suite* suite)
 {
-	printf("Running %s setup\n", suite->name);
-	return EMU_OK;
+    printf("Running %s setup\n", suite->name);
+    return EMU_OK;
 }
 
 emu_error teardown(emu_suite* suite)
 {
-	printf("Running %s teardown\n", suite->name);
-	return EMU_OK;
+    printf("Running %s teardown\n", suite->name);
+    return EMU_OK;
 }
 
 emu_error passing_test(emu_test* test)
 {
-	emu_pass("this should pass");
-	emu_fail_if(0 != 0);
-	emu_fail_unless(0 == 0);
-	emu_fail_unless(test->assertions == 3);
-	emu_fail_unless(test->failed_assertions == 0);
-	return EMU_OK;
+    emu_pass("this should pass");
+    emu_fail_if(0 != 0);
+    emu_fail_unless(0 == 0);
+    emu_fail_unless(test->assertions == 3);
+    emu_fail_unless(test->failed_assertions == 0);
+    return EMU_OK;
 }
 
 emu_error failing_test(emu_test* test)
 {
-	emu_fail("this should fail");
-	emu_fail_if(1 == 1);
-	emu_fail_unless(0 == 1);
-	emu_fail_if(test->assertions == 3);
-	emu_fail_if(test->failed_assertions == 4);
-	return EMU_OK;
+    emu_fail("this should fail");
+    emu_fail_if(1 == 1);
+    emu_fail_unless(0 == 1);
+    emu_fail_if(test->assertions == 3);
+    emu_fail_if(test->failed_assertions == 4);
+    return EMU_OK;
 }
 
 int main (int argc, const char * argv[]) 
 {
-	//create a new suite of tests
-	emu_suite* suite = emu_suite_add("suite_a", setup, teardown);
-	
-	//add some tests to the suite
-	emu_test* test = emu_test_add(suite, "passing_test", passing_test);
-	emu_test_add(suite, "failing_test", failing_test);
-	
-	//run the whole suite
-	emu_suite_run(suite);
-	
-	//display results
-	emu_display_summary();
-	emu_display_details();
-	
-	//run a specific test
-	emu_test_run(test);
-	emu_test_display_details(test);
-	
+    //create a new suite of tests
+    emu_suite* suite = emu_suite_add("suite_a", setup, teardown);
+
+    //add some tests to the suite
+    emu_test* test = emu_test_add(suite, "passing_test", passing_test);
+    emu_test_add(suite, "failing_test", failing_test);
+
+    //run the whole suite
+    emu_suite_run(suite);
+
+    //display results
+    emu_display_summary();
+    emu_display_details();
+
+    //run a specific test
+    emu_test_run(test);
+    emu_test_display_details(test);
+
     return 0;
 }

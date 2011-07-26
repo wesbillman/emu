@@ -49,22 +49,22 @@ typedef emu_error (*emu_teardown)(emu_suite*);
 typedef emu_error (*emu_test_func)(emu_test*);
 
 struct emu_test {
-	char*			name;
-	emu_test_func	test_func;
-	unsigned char	passed;
-	unsigned char	ran;
-	unsigned int	assertions;
-	unsigned int	failed_assertions;
-	const char*		message;
+    char*			name;
+    emu_test_func	test_func;
+    unsigned char	passed;
+    unsigned char	ran;
+    unsigned int	assertions;
+    unsigned int	failed_assertions;
+    const char*		message;
 };
 
 struct emu_suite{
-	char*			name;
-	emu_setup		setup;
-	emu_teardown	teardown;
-	unsigned int	num_tests;
-	unsigned int	num_failed;
-	emu_test*		tests[MAX_TESTS_IN_SUITE];
+    char*			name;
+    emu_setup		setup;
+    emu_teardown	teardown;
+    unsigned int	num_tests;
+    unsigned int	num_failed;
+    emu_test*		tests[MAX_TESTS_IN_SUITE];
 };
 
 //suite functions
@@ -88,10 +88,10 @@ void emu_display_details(void);
 void _emu_internal_fail_unless(int result, const char* file, int line, const char* message);
 
 //test macros
-#define emu_fail(message)		_emu_internal_fail_unless((0), __FILE__, __LINE__, (message))
-#define emu_pass(message)		_emu_internal_fail_unless((1), __FILE__, __LINE__, (message))
-#define emu_fail_if(test)		_emu_internal_fail_unless((!test), __FILE__, __LINE__, ("fail if '"#test"' failed"))
-#define emu_fail_unless(test)	_emu_internal_fail_unless((test), __FILE__, __LINE__, ("fail unless '"#test"' failed"))
+#define emu_fail(message)       _emu_internal_fail_unless((0), __FILE__, __LINE__, (message))
+#define emu_pass(message)       _emu_internal_fail_unless((1), __FILE__, __LINE__, (message))
+#define emu_fail_if(test)       _emu_internal_fail_unless((!test), __FILE__, __LINE__, ("fail if '"#test"' failed"))
+#define emu_fail_unless(test)   _emu_internal_fail_unless((test), __FILE__, __LINE__, ("fail unless '"#test"' failed"))
 
 #ifdef __cplusplus
 }
