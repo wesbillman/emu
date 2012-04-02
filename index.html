@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Emu by wesbillman</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Emu</h1>
+<p>Simple EMbedded Unit testing</p>
+        <p class="view"><a href="https://github.com/wesbillman/emu">View the Project on GitHub <small>wesbillman/emu</small></a></p>
+        <ul>
+          <li><a href="https://github.com/wesbillman/emu/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/wesbillman/emu/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/wesbillman/emu">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>EMU</p>
+
+<p>Simple EMbedded Unit Testing Framework</p>
+
+<p>Quick Start
+include "emu.h"
+Add a suite
+Add some tests
+Run the suite
+Display the results</p>
+
+<pre><code>#include "emu.h"
+
+emu_suite* suite = emu_suite_add("suite_a", setup, teardown);
+emu_test_add(suite, "failing_test", failing_test);
+emu_suite_run(suite);
+emu_display_details();
+</code></pre>
+
+<p>Project specific configuration, if needed.</p>
+
+<pre><code>//emu function overrides
+#define emu_malloc(size)                malloc(size)
+#define emu_free(ptr)                   free(ptr)
+#define emu_memset(ptr, value, size)    memset(ptr, value, size)
+#define emu_printf(...)                 printf(__VA_ARGS__)
+
+//emu size defines
+#define MAX_TESTS_IN_SUITE      32
+#define MAX_SUITES_IN_REPO      32
+#define MAX_SUITE_NAME_LENGTH   32
+</code></pre>
+
+<p>Assert macros</p>
+
+<pre><code>//test macros
+#define emu_fail(message)
+#define emu_pass(message)
+#define emu_fail_if(test)
+#define emu_fail_unless(test)}
+</code></pre>
+
+<p>EMU framework functions</p>
+
+<pre><code>//framework functions
+void emu_all_run(void);
+void emu_display_summary(void);
+void emu_display_details(void);}
+</code></pre>
+
+<p>Suite functions</p>
+
+<pre><code>//suite functions
+emu_suite* emu_suite_add(const char* name, emu_setup setup, emu_teardown teardown);
+void emu_suite_delete(emu_suite* suite);
+void emu_suite_run(emu_suite* suite);
+void emu_suite_display_details(emu_suite* suite);
+</code></pre>
+
+<p>Test functions</p>
+
+<pre><code>//test functions
+emu_test* emu_test_add(emu_suite* suite, const char* name, emu_test_func test);
+void emu_test_delete(emu_test* test);
+void emu_test_run(emu_test* test);
+void emu_test_display_details(emu_test* test);
+</code></pre>
+
+<p>That's all</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/wesbillman">wesbillman</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
